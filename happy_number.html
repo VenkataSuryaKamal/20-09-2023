@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+   function isHappyNumber(n) {
+  const seenSums = new Set();
+  while (n !== 1 && !seenSums.has(n)) {
+    seenSums.add(n);
+    let sum = 0;
+    while (n > 0) {
+      const digit = n % 10;
+      sum += digit * digit;
+      n = Math.floor(n / 10);
+    }
+    n = sum;
+  }
+  return n === 1;
+}
+const testNumber = parseInt(prompt("enter a number"));
+const isHappy = isHappyNumber(testNumber);
+document.write(testNumber + " is a happy number (true/false)    : " + isHappy);
+</script>
+</html>
